@@ -17,7 +17,7 @@ public abstract class Cell {
 		return 0;
 	}
 
-	public abstract void playAction();
+	public abstract boolean playAction(String msg);
 
 	void setName(String name) {
 		this.name = name;
