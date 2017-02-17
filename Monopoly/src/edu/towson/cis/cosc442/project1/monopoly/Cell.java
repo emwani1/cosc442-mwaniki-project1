@@ -1,6 +1,6 @@
 package edu.towson.cis.cosc442.project1.monopoly;
 
-public abstract class Cell {
+public abstract class Cell implements IOwnable {
 	private String name;
 	private boolean available;
 	protected Player theOwner;

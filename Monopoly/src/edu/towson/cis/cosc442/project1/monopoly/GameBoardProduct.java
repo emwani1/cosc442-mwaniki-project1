@@ -47,7 +47,7 @@ public class GameBoardProduct {
 		PropertyCell[] monopolyCells = new PropertyCell[getPropertyNumberForColor(color)];
 		int counter = 0;
 		for (int i = 0; i < gameBoardProductProduct.getCellNumber(); i++) {
-			Cell c = gameBoardProductProduct.getCell(i);
+			IOwnable c = gameBoardProductProduct.getCell(i);
 			if (c instanceof PropertyCell) {
 				PropertyCell pc = (PropertyCell) c;
 				if (pc.getColorGroup().equals(color)) {
