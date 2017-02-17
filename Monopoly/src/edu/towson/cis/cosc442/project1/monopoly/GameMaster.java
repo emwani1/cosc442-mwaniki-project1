@@ -95,19 +95,20 @@ public class GameMaster {
     public void btnRollDiceClicked() {
 		int[] rolls = rollDice();
 		if((rolls[0]+rolls[1]) > 0) {
-			Player player = getCurrentPlayer();
-			gui.setRollDiceEnabled(false);
-			StringBuffer msg = new StringBuffer();
-			msg.append(player.getName())
-					.append(", you rolled ")
-					.append(rolls[0])
-					.append(" and ")
-					.append(rolls[1]);
-			gui.showMessage(msg.toString());
-			movePlayer(player, rolls[0] + rolls[1]);
+			StringBuffer msg = msg(rolls);
 			gui.setBuyHouseEnabled(false);
 		}
     }
+
+	private StringBuffer msg(int[] rolls) {
+		Player player = getCurrentPlayer();
+		gui.setRollDiceEnabled(false);
+		StringBuffer msg = new StringBuffer();
+		msg.append(player.getName()).append(", you rolled ").append(rolls[0]).append(" and ").append(rolls[1]);
+		gui.showMessage(msg.toString());
+		movePlayer(player, rolls[0] + rolls[1]);
+		return msg;
+	}
 
     public void btnTradeClicked() {
         TradeDialog dialog = gui.openTradeDialog();
@@ -196,16 +197,20 @@ public class GameMaster {
 	}
 	
 	public void movePlayer(Player player, int diceValue) {
+		gui(player, diceValue);
+		updateGUI();
+	}
+
+	private void gui(Player player, int diceValue) {
 		Cell currentPosition = player.getPosition();
 		int positionIndex = gameBoard.queryCellIndex(currentPosition.getName());
-		int newIndex = (positionIndex+diceValue)%gameBoard.getCellNumber();
-		if(newIndex <= positionIndex || diceValue > gameBoard.getCellNumber()) {
+		int newIndex = (positionIndex + diceValue) % gameBoard.getCellNumber();
+		if (newIndex <= positionIndex || diceValue > gameBoard.getCellNumber()) {
 			player.setMoney(player.getMoney() + 200);
 		}
 		player.setPosition(gameBoard.getCell(newIndex));
 		gui.movePlayer(getPlayerIndex(player), positionIndex, newIndex);
 		playerMoved(player);
-		updateGUI();
 	}
 
 	public void playerMoved(Player player) {

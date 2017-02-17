@@ -9,15 +9,19 @@ public class GameMasterTest extends TestCase {
 	GameMaster gameMaster;
 	
 	protected void setUp() throws Exception {
+		gameMaster();
+		gameMaster.getPlayer(0).setName("Player 1");
+        gameMaster.getPlayer(1).setName("Player 2");
+	}
+
+	private void gameMaster() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardFull());
 		gameMaster.setNumberOfPlayers(2);
-        gameMaster.getPlayer(0).setName("Player 1");
-        gameMaster.getPlayer(1).setName("Player 2");
 		gameMaster.reset();
 		gameMaster.setTestMode(true);
-        gameMaster.setGUI(new MockGUI());
-        gameMaster.startGame();
+		gameMaster.setGUI(new MockGUI());
+		gameMaster.startGame();
 	}
 	
 	public void testInit() {
