@@ -12,24 +12,42 @@ import javax.swing.JPanel;
 
 import edu.towson.cis.cosc442.project1.monopoly.GameMaster;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UtilDiceRoll.
+ */
 public class UtilDiceRoll extends JDialog {
 	
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Show dialog.
+	 *
+	 * @return the int
+	 */
 	@SuppressWarnings("deprecation")
 	public static int showDialog() {
 		UtilDiceRoll dialog = new UtilDiceRoll();
 		dialog.show();
 		return dialog.diceValue;
 	}
+	
+	/** The btn dice. */
 	JButton btnDice = new JButton("Roll the Dice!");
+	
+	/** The btn OK. */
 	private JButton btnOK = new JButton("OK");
+	
+	/** The dice value. */
 	private int diceValue;
+	
+	/** The lbl prompt. */
 	private JLabel lblPrompt = new JLabel();
 
+	/**
+	 * Instantiates a new util dice roll.
+	 */
 	public UtilDiceRoll() {
 		setModal(true);
 		btnOK.setEnabled(false);
@@ -54,10 +72,16 @@ public class UtilDiceRoll extends JDialog {
 		this.pack();
 	}
 	
+	/**
+	 * Ok clicked.
+	 */
 	public void okClicked(){
 		this.dispose();
 	}
 	
+	/**
+	 * Roll dice.
+	 */
 	public void rollDice() {
 		int[] diceRoll = GameMaster.instance().rollDice();
 		this.diceValue = diceRoll[0] + diceRoll[1];

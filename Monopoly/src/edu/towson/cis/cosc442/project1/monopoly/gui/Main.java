@@ -4,8 +4,18 @@ import javax.swing.JOptionPane;
 
 import edu.towson.cis.cosc442.project1.monopoly.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ */
 public class Main {
 
+	/**
+	 * Input number of players.
+	 *
+	 * @param window the window
+	 * @return the int
+	 */
 	private static int inputNumberOfPlayers(MainWindow window) {
 		int numPlayers = 0;
 		while(numPlayers <= 0 || numPlayers > GameMaster.MAX_PLAYER) {
@@ -27,6 +37,11 @@ public class Main {
 		return numPlayers;
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		GameMaster master = GameMaster.instance();

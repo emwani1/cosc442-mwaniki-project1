@@ -14,16 +14,29 @@ import javax.swing.JLabel;
 import edu.towson.cis.cosc442.project1.monopoly.Player;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BuyHouseDialog.
+ */
 public class BuyHouseDialog extends JDialog {
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The cbo monopoly. */
 	private JComboBox<?> cboMonopoly;
+	
+	/** The cbo number. */
 	private JComboBox<?> cboNumber;
 
+	/** The player. */
 	private Player player;
 
+	/**
+	 * Instantiates a new buy house dialog.
+	 *
+	 * @param player the player
+	 */
 	public BuyHouseDialog(Player player) {
 		this.player = player;
 		Container c = this.getContentPane();
@@ -38,6 +51,11 @@ public class BuyHouseDialog extends JDialog {
 		this.pack();
 	}
 
+	/**
+	 * Builds the cancel button.
+	 *
+	 * @return the j button
+	 */
 	private JButton buildCancelButton() {
 		JButton btn = new JButton("Cancel");
 		btn.addActionListener(new ActionListener(){
@@ -48,11 +66,21 @@ public class BuyHouseDialog extends JDialog {
 		return btn;
 	}
 
+	/**
+	 * Builds the monopoly combo box.
+	 *
+	 * @return the j combo box
+	 */
 	private JComboBox<?> buildMonopolyComboBox() {
 		cboMonopoly = new JComboBox<Object>(player.getMonopolies());
 		return cboMonopoly;
 	}
 	
+	/**
+	 * Builds the number combo box.
+	 *
+	 * @return the j combo box
+	 */
 	private JComboBox<?> buildNumberComboBox() {
 		cboNumber = new JComboBox<Object>(new Integer[]{
 				new Integer(1),
@@ -63,6 +91,11 @@ public class BuyHouseDialog extends JDialog {
 		return cboNumber;
 	}
 
+	/**
+	 * Builds the OK button.
+	 *
+	 * @return the j button
+	 */
 	private JButton buildOKButton() {
 		JButton btn = new JButton("OK");
 		btn.addActionListener(new ActionListener(){
@@ -73,10 +106,16 @@ public class BuyHouseDialog extends JDialog {
 		return btn;
 	}
 	
+	/**
+	 * Cancel clicked.
+	 */
 	private void cancelClicked() {
 		this.dispose();
 	}
 	
+	/**
+	 * Ok clicked.
+	 */
 	private void okClicked() {
 		String monopoly = (String)cboMonopoly.getSelectedItem();
 		int number = cboNumber.getSelectedIndex() + 1;
