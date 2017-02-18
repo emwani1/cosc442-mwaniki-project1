@@ -8,4 +8,5 @@ public abstract class Card {
     public abstract String getLabel();
     public abstract void applyAction();
     public abstract int getCardType();
+	public abstract void addCard(GameBoard gameBoard);
 }

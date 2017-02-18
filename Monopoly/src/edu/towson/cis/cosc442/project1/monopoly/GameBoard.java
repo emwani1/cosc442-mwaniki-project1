@@ -14,11 +14,7 @@ public class GameBoard {
 	}
 
     public void addCard(Card card) {
-        if(card.getCardType() == Card.TYPE_CC) {
-            communityChestCards.add(card);
-        } else {
-            chanceCards.add(card);
-        }
+        card.addCard(this);
     }
 	
 	public void addCell(Cell cell) {
@@ -70,4 +66,12 @@ public class GameBoard {
     public void removeCards() {
         communityChestCards.clear();
     }
+
+	public ArrayList<Card> getCommunityChestCards() {
+		return communityChestCards;
+	}
+
+	public ArrayList<Card> getChanceCards() {
+		return chanceCards;
+	}
 }
