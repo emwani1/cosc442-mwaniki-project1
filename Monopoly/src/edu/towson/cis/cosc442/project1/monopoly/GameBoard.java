@@ -13,9 +13,13 @@ public class GameBoard {
 		addCell(go);
 	}
 
-    public void addCard(Card card) {
-        card.addCard(this);
-    }
+    public void addCard(Card card) { 	  
+    	if(card.getCardType() == Card.TYPE_CC) {
+    		communityChestCards.add(card);
+    		} else {
+    			chanceCards.add(card);
+    			}
+    	}
 	
 	public void addCell(Cell cell) {
 		gameBoardProduct.getCells().add(cell);
@@ -67,11 +71,5 @@ public class GameBoard {
         communityChestCards.clear();
     }
 
-	public ArrayList<Card> getCommunityChestCards() {
-		return communityChestCards;
-	}
-
-	public ArrayList<Card> getChanceCards() {
-		return chanceCards;
-	}
+	
 }

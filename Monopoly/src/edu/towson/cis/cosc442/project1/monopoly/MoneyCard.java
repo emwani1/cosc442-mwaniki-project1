@@ -25,7 +25,5 @@ public class MoneyCard extends Card {
         return label;
     }
 
-	public void addCard(GameBoard gameBoard) {
-		gameBoard.getChanceCards().add(this);
-	}
+	
 }

@@ -36,8 +36,6 @@ public class MovePlayerCard extends Card {
         return "Go to " + destination;
     }
 
-	public void addCard(GameBoard gameBoard) {
-		gameBoard.getCommunityChestCards().add(this);
-	}
+	
 
 }
